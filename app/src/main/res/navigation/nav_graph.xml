@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/HomeFragment"
-        android:name="com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.HomeFragment"
+        android:name="com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.ui.HomeFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_home"/>
     <fragment
         android:id="@+id/LoginFragment"
-        android:name="com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.LoginFragment"
+        android:name="com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.ui.LoginFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_login"/>
 </navigation>

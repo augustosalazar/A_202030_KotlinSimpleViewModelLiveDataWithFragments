@@ -1,4 +1,4 @@
-package com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments
+package com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.R
 import com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.viewmodel.LoginViewModel
 import com.uninorte.a_2020_bindingclick.data.User
 import com.uninorte.a_2020_kotlinsimpleviewmodellivedatavideo.MyViewModel

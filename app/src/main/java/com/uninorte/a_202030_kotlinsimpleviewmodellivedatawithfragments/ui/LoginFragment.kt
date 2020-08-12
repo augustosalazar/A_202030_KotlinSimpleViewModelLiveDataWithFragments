@@ -1,4 +1,4 @@
-package com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments
+package com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +9,7 @@ import android.widget.Button
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.R
 import com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.viewmodel.LoginViewModel
 
 /**
