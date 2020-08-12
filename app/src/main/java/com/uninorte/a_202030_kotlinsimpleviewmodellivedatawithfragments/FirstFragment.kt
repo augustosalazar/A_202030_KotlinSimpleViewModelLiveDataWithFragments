@@ -7,8 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.viewmodel.LoginViewModel
 import com.uninorte.a_2020_bindingclick.data.User
 import com.uninorte.a_2020_kotlinsimpleviewmodellivedatavideo.MyViewModel
 import kotlinx.android.synthetic.main.fragment_first.*
@@ -18,6 +22,7 @@ class FirstFragment : Fragment() {
 
     private var userList = mutableListOf<User>()
     lateinit var myViewModel : MyViewModel
+    val loginViewModel: LoginViewModel by activityViewModels()
     var count : Int = 0
 
     override fun onCreateView(
@@ -47,8 +52,19 @@ class FirstFragment : Fragment() {
             }
         })
 
+        val navController = findNavController()
+        loginViewModel.getLogged().observe(viewLifecycleOwner, Observer { logged ->
+            if (logged == false) {
+                navController.navigate(R.id.SecondFragment)
+            }
+        })
+
         view.findViewById<Button>(R.id.button).setOnClickListener {
             myViewModel.addUser(User("TestUser", userList.size+20))
         }
+        view.findViewById<Button>(R.id.buttonLogout).setOnClickListener {
+            loginViewModel.setLogged(false)
+        }
+
     }
 }
