@@ -10,15 +10,14 @@ import android.widget.Button
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.viewmodel.LoginViewModel
 import com.uninorte.a_2020_bindingclick.data.User
 import com.uninorte.a_2020_kotlinsimpleviewmodellivedatavideo.MyViewModel
-import kotlinx.android.synthetic.main.fragment_first.*
+import kotlinx.android.synthetic.main.fragment_home.*
 
 
-class FirstFragment : Fragment() {
+class HomeFragment : Fragment() {
 
     private var userList = mutableListOf<User>()
     lateinit var myViewModel : MyViewModel
@@ -30,7 +29,7 @@ class FirstFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false)
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,7 +54,7 @@ class FirstFragment : Fragment() {
         val navController = findNavController()
         loginViewModel.getLogged().observe(viewLifecycleOwner, Observer { logged ->
             if (logged == false) {
-                navController.navigate(R.id.SecondFragment)
+                navController.navigate(R.id.LoginFragment)
             }
         })
 

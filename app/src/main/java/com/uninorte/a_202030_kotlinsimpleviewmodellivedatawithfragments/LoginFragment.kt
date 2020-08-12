@@ -14,7 +14,7 @@ import com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.viewmode
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class SecondFragment : Fragment() {
+class LoginFragment : Fragment() {
 
     val loginViewModel: LoginViewModel by activityViewModels()
     override fun onCreateView(
@@ -22,7 +22,7 @@ class SecondFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false)
+        return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -31,7 +31,7 @@ class SecondFragment : Fragment() {
         val navController = findNavController()
         loginViewModel.getLogged().observe(viewLifecycleOwner, Observer { logged ->
             if (logged == true) {
-                navController.navigate(R.id.FirstFragment)
+                navController.navigate(R.id.HomeFragment)
             }
         })
 
