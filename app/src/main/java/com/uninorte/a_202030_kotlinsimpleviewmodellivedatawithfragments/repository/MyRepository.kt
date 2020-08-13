@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.uninorte.a_2020_bindingclick.data.User
 
-class MyRepository {
+object MyRepository {
 
     private var userList = mutableListOf<User>()
     private val users = MutableLiveData<List<User>>()
@@ -18,17 +18,6 @@ class MyRepository {
         users.value = userList
     }
 
-    companion object {
-
-        // For Singleton instantiation
-        @Volatile private var instance : MyRepository? = null
-
-        fun getInstance() =
-            instance ?: synchronized( this){
-                instance ?: MyRepository().also { instance = it }
-            }
-
-    }
 
 
 }
