@@ -7,9 +7,7 @@ import com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.reposito
 import com.uninorte.a_2020_bindingclick.data.User
 
 class MyViewModel : ViewModel(){
-
     private val myRepository = MyRepository
     fun getUsers() = myRepository.getUsers()
     fun addUser(user: User) = myRepository.addUser(user)
-
 }

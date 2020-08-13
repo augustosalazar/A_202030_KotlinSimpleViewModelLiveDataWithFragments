@@ -6,18 +6,13 @@ import androidx.lifecycle.MutableLiveData
 import com.uninorte.a_2020_bindingclick.data.User
 
 object MyRepository {
-
     private var userList = mutableListOf<User>()
     private val users = MutableLiveData<List<User>>()
 
     fun getUsers() = users as LiveData<List<User>>
 
     fun addUser(user: User) {
-        Log.d("VideoViewModel","MyRepository addUser "+user.name)
         userList.add(user)
         users.value = userList
     }
-
-
-
 }

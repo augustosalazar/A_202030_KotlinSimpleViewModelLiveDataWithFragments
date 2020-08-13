@@ -21,7 +21,8 @@ import kotlinx.android.synthetic.main.fragment_home.*
 class HomeFragment : Fragment() {
 
     private var userList = mutableListOf<User>()
-    lateinit var myViewModel : MyViewModel
+    //lateinit var myViewModel : MyViewModel
+    val myViewModel : MyViewModel by activityViewModels()
     val loginViewModel: LoginViewModel by activityViewModels()
     var count : Int = 0
 
@@ -37,7 +38,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // get the instance of the ViewModel
-        myViewModel = ViewModelProvider(this). get(MyViewModel::class.java)
+       // myViewModel = ViewModelProvider(this). get(MyViewModel::class.java)
 
         // get the live data and start observing
         myViewModel.getUsers().observe(getViewLifecycleOwner(), Observer { users ->
