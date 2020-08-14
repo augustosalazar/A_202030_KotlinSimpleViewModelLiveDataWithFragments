@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.R
 import com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.viewmodel.LoginViewModel
@@ -21,7 +20,6 @@ import kotlinx.android.synthetic.main.fragment_home.*
 class HomeFragment : Fragment() {
 
     private var userList = mutableListOf<User>()
-    //lateinit var myViewModel : MyViewModel
     val myViewModel : MyViewModel by activityViewModels()
     val loginViewModel: LoginViewModel by activityViewModels()
     var count : Int = 0
@@ -36,9 +34,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // get the instance of the ViewModel
-       // myViewModel = ViewModelProvider(this). get(MyViewModel::class.java)
 
         // get the live data and start observing
         myViewModel.getUsers().observe(getViewLifecycleOwner(), Observer { users ->

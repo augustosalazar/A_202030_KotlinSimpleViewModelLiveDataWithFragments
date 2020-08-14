@@ -3,21 +3,12 @@ package com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.viewmod
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-
+import com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.repository.LoginRepository
 
 class LoginViewModel : ViewModel() {
-    var logged = MutableLiveData<Boolean>()
-    var stateLogged : Boolean = false
-
-    init {
-        stateLogged = false
-        logged.value = stateLogged;
-    }
-
-    fun getLogged() = logged as LiveData<Boolean>
-
+    private val loginRepository = LoginRepository
+    fun getLogged() = loginRepository.getLogged()
     fun setLogged(state: Boolean){
-        stateLogged = state
-        logged.value = stateLogged;
+        loginRepository.setLogged(state)
     }
 }
