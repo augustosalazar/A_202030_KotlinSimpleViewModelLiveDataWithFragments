@@ -11,7 +11,9 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.R
+import com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.repository.api.Post
 import com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.viewmodel.LoginViewModel
+import com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.viewmodel.PostViewModel
 import com.uninorte.a_2020_bindingclick.data.User
 import com.uninorte.a_2020_kotlinsimpleviewmodellivedatavideo.MyViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -22,7 +24,9 @@ class HomeFragment : Fragment() {
     private var userList = mutableListOf<User>()
     val myViewModel : MyViewModel by activityViewModels()
     val loginViewModel: LoginViewModel by activityViewModels()
+    val postViewModel: PostViewModel by activityViewModels()
     var count : Int = 0
+    lateinit var posts : List<Post>
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -48,6 +52,14 @@ class HomeFragment : Fragment() {
             }
         })
 
+        // get the live data and start observing
+        postViewModel.postsLiveData.observe(getViewLifecycleOwner(), Observer { p ->
+            run {
+                posts = p
+                Log.d("VideoViewModel", "" + posts.size)
+            }
+        })
+
         val navController = findNavController()
         loginViewModel.getLogged().observe(viewLifecycleOwner, Observer { logged ->
             if (logged == false) {
@@ -61,6 +73,8 @@ class HomeFragment : Fragment() {
         view.findViewById<Button>(R.id.buttonLogout).setOnClickListener {
             loginViewModel.setLogged(false)
         }
-
+        view.findViewById<Button>(R.id.buttonPost).setOnClickListener {
+            postViewModel.getPost()
+        }
     }
 }

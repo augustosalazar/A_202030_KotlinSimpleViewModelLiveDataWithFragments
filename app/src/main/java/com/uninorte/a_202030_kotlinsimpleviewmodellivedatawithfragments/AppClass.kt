@@ -9,6 +9,7 @@ class AppClass : Application() {
     override fun onCreate() {
         super.onCreate()
         Log.d("VideoViewModel","AppClass onCreate")
-          PreferenceProvider.initialize(this)
+        PreferenceProvider.initialize(this)
     }
 }
+
