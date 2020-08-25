@@ -76,5 +76,9 @@ class HomeFragment : Fragment() {
         view.findViewById<Button>(R.id.buttonPost).setOnClickListener {
             postViewModel.getPost()
         }
+        view.findViewById<Button>(R.id.buttonPostAPost).setOnClickListener {
+            var post = Post("theTitle","theBody")
+            postViewModel.postAPost(post)
+        }
     }
 }

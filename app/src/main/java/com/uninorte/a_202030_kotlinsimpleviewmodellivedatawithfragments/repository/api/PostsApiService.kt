@@ -19,4 +19,8 @@ class PostsApiService {
         return postsApi.getPost()
     }
 
+    suspend fun postAPost(post: Post): Post {
+        return postsApi.postAPost(post)
+    }
+
 }

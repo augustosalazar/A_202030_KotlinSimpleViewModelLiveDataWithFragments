@@ -1,5 +1,6 @@
 package com.uninorte.a_202030_kotlinsimpleviewmodellivedatawithfragments.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -29,6 +30,15 @@ class PostViewModel: ViewModel() {
         viewModelScope.launch {
             val post = repository.getPost()
             posts.add(post)
+            postsLiveData.postValue(posts)
+        }
+    }
+
+    fun postAPost(post: Post) {
+        viewModelScope.launch {
+            val theReturnPost = repository.postAPost(post)
+            Log.d("VideoViewModel", "theReturnPost " + theReturnPost.body)
+            posts.add(theReturnPost)
             postsLiveData.postValue(posts)
         }
     }
