@@ -74,8 +74,10 @@ class HomeFragment : Fragment() {
             loginViewModel.setLogged(false)
         }
         view.findViewById<Button>(R.id.buttonPost).setOnClickListener {
-            postViewModel.getPost()
+            //postViewModel.getPost()
+            findNavController().navigate(R.id.action_HomeFragment_to_postListFragment)
         }
+
         view.findViewById<Button>(R.id.buttonPostAPost).setOnClickListener {
             var post = Post("theTitle","theBody")
             postViewModel.postAPost(post)

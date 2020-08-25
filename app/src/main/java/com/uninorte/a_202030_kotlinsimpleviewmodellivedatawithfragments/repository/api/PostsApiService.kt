@@ -15,8 +15,8 @@ class PostsApiService {
         return postsApi.getPosts()
     }
 
-    suspend fun getPost(): Post {
-        return postsApi.getPost()
+    suspend fun getPost(index : Int): Post {
+        return postsApi.getPost(index)
     }
 
     suspend fun postAPost(post: Post): Post {

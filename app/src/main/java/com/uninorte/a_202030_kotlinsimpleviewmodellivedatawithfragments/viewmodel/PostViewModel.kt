@@ -28,7 +28,7 @@ class PostViewModel: ViewModel() {
 
      fun getPost() {
         viewModelScope.launch {
-            val post = repository.getPost()
+            val post = repository.getPost(posts.size+1)
             posts.add(post)
             postsLiveData.postValue(posts)
         }
