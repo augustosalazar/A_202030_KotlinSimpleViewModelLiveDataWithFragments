@@ -8,6 +8,7 @@
 
     <Button
         android:id="@+id/button"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add entry"
@@ -27,6 +28,8 @@
         android:layout_marginTop="92dp"
         android:text="Tamaño actual"
         android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/colorPrimary"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/textViewSize"
         app:layout_constraintHorizontal_bias="0.5"
@@ -37,16 +40,17 @@
         android:id="@+id/textViewSize"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
         android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
         android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/textView" />
 
     <Button
         android:id="@+id/buttonLogout"
+        style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
@@ -59,6 +63,7 @@
 
     <Button
         android:id="@+id/buttonPost"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Posts"
